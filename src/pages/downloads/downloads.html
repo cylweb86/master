@@ -1,0 +1,41 @@
+<!--
+  Generated template for the DownloadsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>下载列表</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <loading mess="暂无数据" [status]="downloads" *ngIf="!downloads else entry"></loading>
+  <ng-template #entry>
+    <div class="down-head" *ngIf="!switch">
+      下载的表格将上传到云端，在电脑上输入下载链接即可查看并下载。
+      <a (touch)="switch=!switch">
+        <ion-icon name="close"></ion-icon>
+      </a>
+    </div>
+    <ion-card *ngFor="let val of downloads;let i = index">
+      <ion-item line-bottom>
+        <ion-icon item-left name="ifile"></ion-icon>
+        {{val.name}}
+      </ion-item>
+      <ion-row>
+        <a (touch)="check(val)">
+          文件查看
+        </a>
+        <a (touch)="copy(val)">
+          复制链接
+        </a>
+        <a (touch)="del(val,i)">
+          删除
+        </a>
+      </ion-row>
+    </ion-card>
+  </ng-template>
+</ion-content>

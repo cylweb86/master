@@ -1,0 +1,41 @@
+page-informs {
+  .card {
+    border-radius: 6px;
+    margin: 16px 12px;
+    padding-bottom: 12px;
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .inform {
+        position: relative;
+        font-weight: bold;
+        font-size: 1.6rem;
+        width: 68%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        i {
+          display: flex;
+          width: 9px;
+          height: 9px;
+          background: color($colors, danger);
+          border-radius: 50%;
+          position: absolute;
+          left: -12px;
+          top: 6px;
+        }
+      }
+    }
+
+    .card-content {
+      text-align: justify;
+      color: #666;
+      font-size: 1.4rem;
+    }
+  }
+
+}

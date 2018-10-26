@@ -1,0 +1,13 @@
+page-exam {
+  .operate-head {
+    background: #fff;
+    padding: 12px 16px 16px;
+    p:first-of-type {
+      font-size: 1.7rem;
+      font-weight: 500;
+    }
+    p:last-of-type {
+      color: color($colors, gray9);
+    }
+  }
+}

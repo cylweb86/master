@@ -1,0 +1,52 @@
+page-handles {
+  loading{
+    .row{
+      background: #fff !important;
+    }
+  }
+  .segment-button {
+    font-size: 1.4rem !important;
+  }
+  .button-round-ios {
+    padding: 0 12px;
+    border-radius: 0 64px 64px 0;
+  }
+  .report-head {
+    background: #fff;
+    padding-bottom: 12px;
+    padding-top: 18px;
+    .button {
+      box-shadow: 0px 1px 12px #dadada;
+      height: 30px;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+  ion-item-group {
+    .item {
+      p {
+        .middleline {
+          color: #ddd;
+          display: inline-block;
+          height: 100%;
+          position: relative;
+          bottom: 1px;
+        }
+      }
+      p:last-of-type {
+        font-size: 1.6rem;
+      }
+      h3 {
+        span:last-of-type {
+          display: inline-block;
+          padding: 0 7px;
+          border: 1px solid #ddd;
+          font-size: 1.2rem;
+          border-radius: 3px;
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}

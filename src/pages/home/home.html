@@ -1,0 +1,34 @@
+<!--
+  Generated template for the HomePage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar transparent>
+    <ion-title *ngIf="shadow.isshow">七天汇</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="cons">
+    <div class="some" [class.shadowcon]="shadow.first" (touch)="goSheets()" [style.height.px]="height">
+      <img src="assets/images/sheet.png">工单
+    </div>
+    <div class="some" [class.shadowcon]="shadow.second" (touch)="goData()" [style.height.px]="height">
+      <img src="assets/images/data.png">数据看板
+    </div>
+  </div>
+  <div class="cons">
+    <div class="some" [class.shadowcon]="shadow.third" (touch)="goArrange()" [style.height.px]="height">
+      <img src="assets/images/arrange.png">约考
+    </div>
+    <div class="empty" [style.height.px]="height"></div>
+  </div>
+  <!-- <div class="nocons">
+    <div [style.height.px]="height"></div>
+    <div [style.height.px]="height"></div>
+  </div> -->
+  <div class="nocons">
+    <div [style.height.px]="height"></div>
+    <div [style.height.px]="height"></div>
+  </div>
+</ion-content>

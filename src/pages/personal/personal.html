@@ -1,0 +1,54 @@
+<!--
+  Generated template for the PersonalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>个人信息</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <loading mess="暂无信息" [status]="area" *ngIf="!userInfo else entry"></loading>
+  <ng-template #entry>
+    <ion-list list-cover>
+      <ion-item>
+        <ion-note item-start color="gray6">
+          姓名
+        </ion-note>
+        <ion-note item-end color="gray9">
+          {{userInfo?.Name}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-note item-start color="gray6">
+          手机号
+        </ion-note>
+        <ion-note item-end color="gray9">
+          {{userInfo?.Phone}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-note item-start color="gray6">
+          职位
+        </ion-note>
+        <ion-note item-end color="gray9">
+          {{userInfo?.Role}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-note item-start color="gray6">
+          区域
+        </ion-note>
+        <ion-note style="text-align:right" item-end color="gray9" class="area">
+          {{area||'无'}}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+</ion-content>

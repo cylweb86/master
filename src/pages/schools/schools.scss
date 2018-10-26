@@ -1,0 +1,32 @@
+page-schools {
+  .toolbar-content {
+    // opacity: 1;
+    // transform: translateX(0);
+    a {
+      .icon {
+        font-size: 2.5rem;
+      }
+    }
+  }
+  .scroll-content {
+    &>p {
+      padding: 8px 16px;
+    }
+  }
+  .list {
+    background: #fff;
+    margin-bottom: 0;
+    p {
+      padding: 8px 16px;
+      font-size: 1.7rem;
+      font-weight: 400;
+    }
+  }
+  // .back-button[style*='transition-timing-function']~.toolbar-content {
+  //   opacity: 0;
+  //   transform: translateX(100%);
+  //   will-change: opacity, transform, -webkit-transform;
+  //   transition-duration: .28s;
+  //   transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
+  // }
+}

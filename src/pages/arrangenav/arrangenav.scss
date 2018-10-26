@@ -1,0 +1,50 @@
+page-arrangenav {
+  .content {
+    background: #fff;
+  }
+
+  .header {
+    &:after {
+      height: 0.55px;
+      content: '';
+      width: 100%;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.08);
+      right: 0;
+      top: calc(100% - 1px);
+      transform: scaleY(0.35);
+    }
+  }
+
+  .card {
+    padding: 30px 0 30px 30px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 3px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+
+    &:first-of-type {
+      background: #fff url('../assets/images/bg4.png') no-repeat;
+      background-size: cover;
+    }
+
+    &:nth-child(2) {
+      background: #fff url('../assets/images/bg5.png') no-repeat;
+      background-size: cover;
+    }
+
+    p {
+      width: 100%;
+    }
+
+    p:first-of-type {
+      font-size: 2rem;
+    }
+
+    p:last-of-type {
+      font-size: 1.2rem;
+      padding-top: 2px;
+    }
+  }
+}

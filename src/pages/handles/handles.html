@@ -1,0 +1,53 @@
+<!--
+  Generated template for the HandlesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header [attr.line-bottom]="isshow?'':null">
+  <ion-navbar color="white">
+    <ion-title>
+      <ion-segment (ionChange)="segmentChanged($event)" [ngModel]="activeIndex" [disabled]="refreshing">
+        <ion-segment-button value="0">
+          待审核
+        </ion-segment-button>
+        <ion-segment-button value="1">
+          已审核
+        </ion-segment-button>
+      </ion-segment>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <p class="report-head">
+    <button no-margin round free ion-button color="white" icon-left>
+      <ion-icon name="icalendar" color="primary"></ion-icon>
+      <ion-datetime no-padding displayFormat="YYYY年M月" [(ngModel)]="myDate" [max]="max" pickerFormat="YYYY-MM" cancelText="取消"
+        doneText="完成" (ionChange)="timeChange()"></ion-datetime>
+    </button>
+  </p>
+  <loading mess="没有工单" [status]="handles[activeIndex]" *ngIf="!handles[activeIndex];else entry"></loading>
+  <ng-template #entry>
+    <ion-item-group list-cover>
+      <button ion-item *ngFor="let val of handles[activeIndex]" [navPush]="pages.handle" [navParams]="val">
+        <h3>
+          <span class="font16">{{val.examName|shorten:15}}</span>
+          <span [ngStyle]="{'border-color':!val.chargeType?'#F25542':'#32db64','color':!val.chargeType?'#F25542':'#32db64'}">{{val.chargeTypeName}}</span>
+        </h3>
+        <p ion-text color="gray9">{{val.creatorName}}&nbsp;
+          <span *ngIf="val.role" class="middleline">|</span>&nbsp;{{val.role}}
+        </p>
+        <p ion-text color="gray9">提交时间:{{val.createTime}}</p>
+        <p ion-text [color]="val.status==1?'red':val.status==2?'secondary':'gray9'">{{val.staName}}</p>
+      </button>
+    </ion-item-group>
+    <ion-infinite-scroll *ngIf="canLoad[activeIndex]" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ng-template>
+</ion-content>

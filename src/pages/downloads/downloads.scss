@@ -1,0 +1,53 @@
+page-downloads {
+  .content {
+    background: #fff;
+  }
+  .down-head {
+    background-color: #fff7ea;
+    color: #ffb230;
+    padding: 12px 32px 12px 16px;
+    position: relative;
+    .icon {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 2rem;
+      color: #ffb230;
+    }
+  }
+  .card {
+    margin: 20px 16px 25px 16px;
+    width: auto;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.08);
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    .item {
+      padding: 12px 8px;
+      .label {
+        white-space: normal;
+        overflow: visible;
+      }
+    }
+    .row {
+      padding: 11px 0;
+      a {
+        padding: 2px 0;
+        position: relative;
+        width: 100%;
+        margin: 0;
+        min-height: 1px;
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+        &:not(:last-of-type) {
+          border-right: 1px solid #ddd;
+          color: color($colors, text);
+        }
+        &:last-of-type {
+          color: #f3604f;
+        }
+      }
+    }
+  }
+}

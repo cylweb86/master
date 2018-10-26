@@ -1,0 +1,22 @@
+page-notice {
+  .content {
+    background: #fff;
+    .section {
+      padding: 24px 16px 0;
+      line-height: 20px;
+      color: color($colors, text);
+      &:first-of-type {
+        padding-top: 16px;
+      }
+      p:nth-of-type(1) {
+        font-weight: 500;
+        font-size: 1.6rem;
+        color: #222;
+        padding-bottom: 10px;
+      }
+      P:not(:first-of-type) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

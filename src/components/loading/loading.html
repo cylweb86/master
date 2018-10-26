@@ -1,0 +1,22 @@
+<!--
+  Generated template for the LoadingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--
+statusValue 为false undefined null时显示
+且为undefined  就loading
+否则就显示没有数据
+-->
+<ng-container *ngIf="!statusValue">
+  <ion-row [style.height]="height">
+    <ion-spinner color="gray9" *ngIf="statusValue===undefined;else nodata"></ion-spinner>
+    <ng-template #nodata>
+      <ion-col>
+        <img src="assets/images/400.png">
+        <span>{{mess}}</span>
+      </ion-col>
+    </ng-template>
+  </ion-row>
+</ng-container>

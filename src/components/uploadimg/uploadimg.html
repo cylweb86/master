@@ -1,0 +1,23 @@
+<ion-row>
+  <ion-col margin-right-12 col-2 no-padding *ngFor="let url of urls;let i = index;">
+    <ng-container [ngSwitch]="items[i].state">
+      <div class="processsing" *ngSwitchCase="1">
+        <ion-spinner color="white"></ion-spinner>
+      </div>
+      <div class="success" *ngSwitchCase="2">
+        <ion-icon name="ios-checkmark" color="secondary"></ion-icon>
+      </div>
+      <div class="success" *ngSwitchCase="3">
+        <ion-icon name="ios-information-circle-outline" color="danger"></ion-icon>
+      </div>
+      <a (touch)="remove(i)" event="feedback_remove" *ngSwitchDefault>
+        <ion-icon name="ios-remove-circle-outline" color="danger"></ion-icon>
+      </a>
+    </ng-container>
+    <img [src]="url" [imgviewer]="{images:urls,title:'上传图片预览',initialSlide:i}">
+  </ion-col>
+  <a class="add" (touch)="picker()" *ngIf='urls.length<9' col-2 event="feedback_picker">
+    <ion-icon name="add"></ion-icon>
+    <p class="count">{{urls.length}}/9 </p>
+  </a>
+</ion-row>

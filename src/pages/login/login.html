@@ -1,0 +1,26 @@
+<ion-content>
+  <div class="login-wrap">
+    <img src="assets/images/logo.png" alt="logo" class="logo">
+    <div class="login-text">
+      <h1>用户登录</h1>
+    </div>
+    <form [formGroup]="authForm" (ngSubmit)="login(authForm.value)">
+      <ion-list no-lines>
+        <ion-item no-lines line-bottom no-padding>
+          <ion-label stacked>手机号码</ion-label>
+          <ion-input type="tel" formControlName="usercode" maxlength="11" placeholder="请输入手机号码"></ion-input>
+        </ion-item>
+        <ion-item no-lines line-bottom no-padding>
+          <ion-label stacked>密码</ion-label>
+          <ion-input entype="password" type="password" formControlName="password" placeholder="请输入密码"></ion-input>
+        </ion-item>
+      </ion-list>
+      <p>
+        <submiton event="login_submit" class="login-submit" [(state)]="authForm['processing']">登 录</submiton>
+      </p>
+    </form>
+    <p class="forgot" margin-bottom>
+      <a ion-text color="minifont" padding-vertical-12 [navPush]="pages.forget" [navParams]="{type:'recover'}" event="login_goForget">忘记密码？</a>
+    </p>
+  </div>
+</ion-content>

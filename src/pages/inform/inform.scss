@@ -1,0 +1,48 @@
+page-inform {
+  .content {
+    background: #fff;
+  }
+
+  .card {
+    width: 100%;
+    box-shadow: 0 0 0 transparent;
+  }
+
+  .informcon {
+    font-size: 1.4rem;
+    color: #666;
+  }
+
+  .card-header {
+    h2 {
+      color: color($colors, dark);
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: color($colors, gray9);
+      font-size: 1.2rem;
+    }
+  }
+
+  .card-content {
+    p:not(.size) {
+      text-indent: 30px;
+
+      &:last-of-type {
+        padding-bottom: 25px;
+      }
+    }
+
+    p {
+      color: #666;
+    }
+  }
+
+  .attachment {
+    .card-header {
+      padding: 0 16px;
+    }
+  }
+}

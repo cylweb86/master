@@ -1,0 +1,195 @@
+<!--
+  Generated template for the UnionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>工单详情</ion-title>
+    <ion-buttons end no-margin>
+      <button ion-button clear icon-only (touch)="doRefresh()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="union;else loading">
+    <div class="applyt" *ngIf="!switch&&union.isCanRelease==1">
+      <ion-icon name="inotice"></ion-icon>{{endtime}}后（含当日）可申请发布成绩
+      <a (touch)="switch=!switch">
+        <ion-icon name="close"></ion-icon>
+      </a>
+    </div>
+    <ion-scroll scrollY="true" [class.hastop]="!switch&&union.isCanRelease==1" class="scroll-content">
+      <div class="summary" padding>
+        <p>
+          <span>工单编号</span>
+          <span>{{union.id | zero}}</span>
+        </p>
+        <p>
+          <span>工单类型</span>
+          <span>{{union.channel==1?'联考工单':'约考工单'}}</span>
+        </p>
+        <p>
+          <span>状&emsp;&emsp;态</span>
+          <span class="status" ion-text [color]="union.status==1?'red':union.status==2?'secondary':'gray9'">{{union.staName}}</span>
+        </p>
+        <p>
+          <span style="letter-spacing: 2px">提 交 人</span>
+          <span>{{union.creatorName}}</span>
+        </p>
+        <p>
+          <span>职&emsp;&emsp;位</span>
+          <span>{{union.role}}</span>
+        </p>
+        <p class="subject">
+          <span>区&emsp;&emsp;域</span>
+          <span>{{union.area || '暂无'}}</span>
+        </p>
+        <p>
+          <span>联系方式</span>
+          <span>{{union.creator}}</span>
+        </p>
+        <p class="subject">
+          <span>平台名称</span>
+          <span>{{union.platform}}</span>
+        </p>
+        <p>
+          <span>考试类型</span>
+          <span>{{union.examType==1?'原组织代码下考试':'新建申请'}}</span>
+        </p>
+        <p>
+          <span>组织代码</span>
+          <span>{{union.orgCode || '暂无'}}</span>
+        </p>
+        <p class="subject">
+          <span>考试名称</span>
+          <span>{{union.examName}}</span>
+        </p>
+        <p>
+          <span>年&emsp;&emsp;级</span>
+          <span>{{grades[union.grade] || '暂无'}}</span>
+        </p>
+        <p>
+          <span>考试渠道</span>
+          <span>{{union.channel==1?'联考':'约考'}}</span>
+        </p>
+        <p>
+          <span>考试时间</span>
+          <span>{{union.examTimeStart}} 至 {{union.examTimeEnd}}</span>
+        </p>
+        <p>
+          <span>提交时间</span>
+          <span>{{union.createTime}}</span>
+        </p>
+        <p>
+          <span>是否收费</span>
+          <span>{{union.chargeType==0?'免费':union.chargeType==1?'收费':'协议年费'}}</span>
+        </p>
+        <p class="subject">
+          <span>收费标准</span>
+          <span>{{union.chargeStd || '暂无'}}</span>
+        </p>
+        <p class="longchina">
+          <span>是否申请技术支持</span>
+          <span>{{union.techSupt==0?'不申请':union.techSupt==1?'申请技术支持':'申请技术协作'}}</span>
+        </p>
+        <p class="subject">
+          <span>业务简述</span>
+          <span>{{union.techSuptDesc || '暂无'}}</span>
+        </p>
+        <p class="longchina">
+          <span>考试联系人</span>
+          <span>{{union.contact}}</span>
+        </p>
+        <p class="longchina">
+          <span>联系人方式</span>
+          <tel>{{union.contactWay}}</tel>
+        </p>
+        <p class="longchina">
+          <span>计划学校数</span>
+          <span [class.purenum]="union.schoolNum">{{union.schoolNum || '暂无'}}</span>
+        </p>
+        <p class="longchina">
+          <span>计划考生数</span>
+          <span [class.purenum]="union.studentNum">{{union.studentNum || '暂无'}}</span>
+        </p>
+      </div>
+      <div class="addcon">
+        <ng-container *ngIf="switch||union.additionals?.length<3">
+          <div class="addmore" *ngFor="let item of union.additionals">
+            <span class="addindex" margin-right-8>{{item.title}}</span>
+            <span class="addtime">{{item.createTime}}</span>
+            <p>
+              {{item.contents}}
+            </p>
+          </div>
+        </ng-container>
+        <a *ngIf="union.additionals.length>=3" class="switches">
+          <ion-icon [name]="switch ? 'arrow-up': 'arrow-down'" (touch)="switch =!switch"></ion-icon>
+        </a>
+      </div>
+      <div class="examine">
+        <p>工单审核</p>
+        <ion-item-group list-cover>
+          <ion-item *ngFor="let item of (union.approvals | approval);let id = index">
+            <ion-avatar item-start *ngIf="item.creatorName">
+              <img src="assets/images/avatar.png">
+            </ion-avatar>
+            <ion-label item-start>
+              <h2>{{item.creatorName || (item.title | numtoupper)}}</h2>
+              <p *ngIf="item.role">{{item.role}}</p>
+            </ion-label>
+            <ion-note item-end [color]="item.isPass==0?'red':item.isPass==1?'secondary':'gray9'">
+              {{item.isPassName}}
+            </ion-note>
+          </ion-item>
+        </ion-item-group>
+      </div>
+      <div class="reply" *ngIf="union.replies.length">
+        <p>回访意见</p>
+        <ng-container *ngFor="let val of union.replies">
+          <ion-item no-lines>
+            <ion-avatar item-start>
+              <img src="assets/images/avatar.png">
+            </ion-avatar>
+            <h2>{{val.creatorname}}</h2>
+            <p>
+              <img src="assets/images/phone.png">{{val.creator}}
+            </p>
+          </ion-item>
+          <p class="describe">
+            {{val.contents}}
+            <span class="triangle-border tb-border"></span>
+          </p>
+        </ng-container>
+      </div>
+      <div class="ft"></div>
+    </ion-scroll>
+  </ng-container>
+  <ng-template #loading>
+    <loading [status]="union"></loading>
+  </ng-template>
+</ion-content>
+
+<ion-footer no-border padding-horizontal *ngIf="canfoot">
+  <ion-toolbar>
+    <ng-container *ngIf="union;else empty">
+      <ion-row *ngIf="union.isCanAdditional" justify-content-between align-items-center>
+        <button (touch)="doissue()" *ngIf="union.isCanRevoke || union.isCanRelease" [class.dis]="union.isCanRelease==1||union.isCanRelease==3||union.isCanRelease==4"
+          block ion-button>
+          {{union.isCanRevoke?'撤回工单':applyn[union.isCanRelease]}}
+        </button>
+        <button block ion-button [navPush]="pages.unionadd" [navParams]="{guid:guid}" [class.full]="(union.status==2&&!union.isCanRelease)||(union.status==1&&!union.isCanRevoke)">
+          内容补充
+        </button>
+      </ion-row>
+    </ng-container>
+    <ng-template #empty>
+      <div></div>
+    </ng-template>
+  </ion-toolbar>
+</ion-footer>

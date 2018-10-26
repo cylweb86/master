@@ -1,0 +1,145 @@
+page-sheet {
+  .content {
+    background-color: #f2f3f4;
+  }
+
+  .block {
+    background: #fff;
+    margin-bottom: 10px;
+  }
+
+  .summary {
+    line-height: 25px;
+    background-color: #fff;
+    position: relative;
+
+    p>span:first-child {
+      color: color($colors, gray9);
+      width: 80px;
+      display: inline-block;
+    }
+
+    p>span:last-child:not(.status) {
+      color: color($colors, text);
+    }
+
+    &:after {
+      height: 0.55px;
+      content: '';
+      width: 100%;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.2);
+      right: 0;
+      top: calc(100% - 1px);
+      transform: scaleY(0.35)
+    }
+  }
+
+  .condes {
+    background: #fff;
+    padding-top: 16px;
+  }
+
+  .addmore {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    .addindex {
+      display: inline-block;
+      width: 44px;
+      height: 25px;
+      text-align: center;
+      color: white;
+      background: url("../assets/images/add.png") center left no-repeat;
+      background-size: cover;
+      font-size: 12px;
+    }
+
+    .addtime {
+      color: color($colors, gray9);
+    }
+  }
+
+  .switches {
+    position: absolute;
+    margin: auto;
+    bottom: 0;
+    left: 0;
+    right: 0; // width: 100%;
+    padding: 4px 16px 8px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    color: color($colors, gray9);
+  }
+
+  .block {
+    .replytitle {
+      color: color($colors, gray9);
+    }
+
+    .realreplay {
+      margin-bottom: 20px;
+
+      .innerreplay {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 20px;
+        }
+      }
+
+      .replyimgs {
+        margin-top: 16px;
+      }
+    }
+
+    .time {
+      color: color($colors, gray9);
+      font-size: 12px;
+    }
+
+    .describe {
+      width: 100%;
+      background: #f2f2f2;
+      position: relative;
+      border-radius: 5px;
+      font-size: 1.4rem;
+      line-height: 20px;
+
+      .triangle-border {
+        position: absolute;
+        left: 30px;
+        overflow: hidden;
+        width: 0;
+        height: 0;
+        border-width: 10px;
+        border-style: solid dashed dashed dashed;
+      }
+
+      .tb-border {
+        bottom: 52px;
+        border-color: transparent transparent #f2f2f2 transparent;
+      }
+
+      .tb-background {
+        bottom: 52px;
+        border-color: transparent transparent #f2f2f2 transparent;
+      }
+    }
+  }
+
+  .footer {
+    background: #fff;
+
+    .row {
+      .half {
+        flex: 0 0 45%;
+        width: 45%;
+        max-width: 45%;
+      }
+    }
+  }
+}

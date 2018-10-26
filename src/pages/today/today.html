@@ -1,0 +1,96 @@
+<!--
+  Generated template for the TodayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div class="today-head" *ngIf="switch" padding-top>
+  <div>
+    <ion-icon name="idown" color="primary"></ion-icon>
+    <span ion-text color="plus">下拉刷新数据</span>
+  </div>
+  <a (touch)="navCtrl.pop()">
+    <ion-icon name="iclose"></ion-icon>
+  </a>
+</div>
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <loading mess="暂无数据" [status]="state" *ngIf="!state else entry"></loading>
+  <ng-template #entry>
+    <div class="summary" padding-top>
+      <p>{{now}}</p>
+      <div>
+        <div>
+          <h1>{{today.totalM}}</h1>
+          <p>总营收(元)</p>
+        </div>
+        <div>
+          <h1>{{today.totalT}}</h1>
+          <p>下单量(次)</p>
+        </div>
+      </div>
+    </div>
+    <ion-row justify-content-between align-items-center>
+      <ion-col no-padding col-6>
+        <echart [option]="revenue"></echart>
+      </ion-col>
+      <ion-col class="con" col-6>
+        <p padding-left>营收占比</p>
+        <p class="prefix">
+          <i class="fir"></i>
+          <span>C端</span>
+        </p>
+        <p padding-left text-left>营收额&nbsp;&nbsp;<span ion-text color="plus">{{today.revenueC}}元({{(100*today.revenueC/today.totalM).toFixed(1)}}%)</span></p>
+        <p class="prefix">
+          <i class="sec"></i>
+          <span>错题集</span>
+        </p>
+        <p padding-left text-left>营收额&nbsp;&nbsp;<span ion-text color="plus">{{today.revenueE}}元({{(100*today.revenueE/today.totalM).toFixed(1)}}%)</span></p>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-between align-items-center>
+      <ion-col no-padding col-6>
+        <echart [option]="time"></echart>
+      </ion-col>
+      <ion-col class="con" col-6>
+        <p padding-left>下单占比</p>
+        <p class="prefix">
+          <i class="fir"></i>
+          <span>C端</span>
+        </p>
+        <p padding-left text-left>下单量&nbsp;&nbsp;<span ion-text color="plus">{{today.timeC}}次({{(100*today.timeC/today.totalT).toFixed(1)}}%)</span></p>
+        <p class="prefix">
+          <i class="sec"></i>
+          <span>错题集</span>
+        </p>
+        <p padding-left text-left>下单量&nbsp;&nbsp;<span ion-text color="plus">{{today.timeE}}次({{(100*today.timeE/today.totalT).toFixed(1)}}%)</span></p>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-between align-items-center>
+      <ion-col no-padding col-6>
+        <echart [option]="method"></echart>
+      </ion-col>
+      <ion-col class="con" col-6>
+        <p padding-left>渠道占比</p>
+        <p class="prefix">
+          <i class="fir"></i>
+          <span>支付宝</span>
+        </p>
+        <p padding-left text-left>下单量&nbsp;&nbsp;<span ion-text color="plus">{{today.alipay}}次({{(100*today.alipay/today.totalT).toFixed(1)}}%)</span></p>
+        <p class="prefix">
+          <i class="sec"></i>
+          <span>微信</span>
+        </p>
+        <p padding-left text-left>下单量&nbsp;&nbsp;<span ion-text color="plus">{{today.wechatpay}}次({{(100*today.wechatpay/today.totalT).toFixed(1)}}%)</span></p>
+        <p class="prefix">
+          <i class="thi"></i>
+          <span>银联</span>
+        </p>
+        <p padding-left text-left>下单量&nbsp;&nbsp;<span ion-text color="plus">{{today.unionpay}}次({{(100*today.unionpay/today.totalT).toFixed(1)}}%)</span></p>
+      </ion-col>
+    </ion-row>
+  </ng-template>
+</ion-content>

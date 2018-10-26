@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      考试详情
+    </ion-title>
+    <ion-buttons end>
+      <button clear icon-only ion-button (touch)="help()">
+        <ion-icon color="primary" name="ios-help-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="operate-head">
+    <p>{{navParams.get('mix')}}</p>
+    <p>{{navParams.get('time') | time}}</p>
+  </div>
+  <!-- 考试数 -->
+  <ion-list list-cover>
+    <div class="pageView">
+      <a (touch)="gotrend('total')">
+        <span class="font16" ion-text color="text">考试数</span>
+        <span class="font16" ion-text color="danger">{{navParams.get('total') || '0'}}次</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+      <a (touch)="gotrend('SmallExam')">
+        <span>小考次数</span>
+        <span>{{navParams.get('smallT') || '0'}}次</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+      <a (touch)="gotrend('SchoolExam')">
+        <span>校考次数</span>
+        <span>{{navParams.get('schoolT') || '0'}}次</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+      <a (touch)="gotrend('UnionExam')">
+        <span>联考次数</span>
+        <span>{{navParams.get('unionT') || '0'}}次</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+    </div>
+    <button ion-item (touch)="gotrend('ExamStudentTime')">
+      <ion-label>考试人次</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('personT') || '0'}}次</ion-note>
+    </button>
+    <button ion-item (touch)="gotrend('PubExamStudentCount')">
+      <ion-label>考生数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('studentC') || '0'}}人</ion-note>
+    </button>
+    <button ion-item (touch)="gotrend('ResponseCount')">
+      <ion-label>答卷数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('answer') || '0'}}份</ion-note>
+    </button>
+    <button ion-item [navPush]="pages.exam" [navParams]="{req:navParams.get('param'),type:'exam',region:navParams.get('region')}">
+      <ion-label>有考试学校数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('allC') || '0'}}所</ion-note>
+    </button>
+    <button ion-item [navPush]="pages.exam" [navParams]="{req:navParams.get('param'),type:'schoolExam',region:navParams.get('region')}">
+      <ion-label>有校考学校数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('schoolC') || '0'}}所</ion-note>
+    </button>
+  </ion-list>
+</ion-content>

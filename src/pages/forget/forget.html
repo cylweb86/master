@@ -1,0 +1,20 @@
+<!-- Generated template for the PhonecodeComponent component,add by leo zhang 201710010101 -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>忘记密码</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+  <h2>请输入手机号码</h2>
+  <ion-item no-lines line-bottom>
+    <ion-label stacked>手机号码</ion-label>
+    <ion-input type="tel" maxlength="11" (ionChange)="codeupdate($event)" [(ngModel)]="phone" placeholder="请输入手机号码"></ion-input>
+  </ion-item>
+  <p>
+    <submiton [(state)]="authForm" event="forget_goValidation" (onClick)="sendcode()">
+      下一步
+    </submiton>
+  </p>
+  
+</ion-content>

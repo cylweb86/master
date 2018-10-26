@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>公司通知</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <loading mess="暂无数据" [status]="companys" *ngIf="!companys else entry"></loading>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <ng-template #entry>
+    <ion-card (touch)="goInform(item)" *ngFor="let item of companys">
+      <ion-card-header>
+        <span class="inform"><i *ngIf="item.isRead==0"></i>{{item.title}}</span>
+        <span class="font12" ion-text color="gray9">{{item.noticeTime | differtime}}</span>
+      </ion-card-header>
+      <ion-card-content>
+        {{item.content}}
+      </ion-card-content>
+    </ion-card>
+    <ion-infinite-scroll *ngIf="total>companys.length" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ng-template>
+</ion-content>

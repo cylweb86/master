@@ -1,0 +1,29 @@
+<!-- Generated template for the PhotosviewerComponent component,add by leo zhang 201710010101 -->
+<ion-content [fullscreen]='true' color="white">
+  <ion-header>
+    <div padding-8 showWhen="ios" style="background: rgba(0, 0, 0, 0.25)"></div>
+    <ion-navbar color="transparent" no-border>
+      <ion-buttons start>
+        <button ion-button icon-only (touch)="viewCtrl.dismiss()" clear event="photosviewer_close">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>{{title}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <!-- Swiper -->
+  <div class="swiper-container" id="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let photo of photos;let i =index">
+        <div class="swiper-zoom-container">
+          <ion-spinner color="white" *ngIf="!states[i]"></ion-spinner>
+          <img [src]="photo" (load)="load(i)" (error)="states[i]=-1" [hidden]="states[i]!==1" *ngIf="states[i]!=-1;else error;">
+          <ng-template #error>
+            <img src="assets/images/default.png">
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination swiper-pagination-white" id='swiper-pagination' *ngIf="photos.length>1"></div>
+  </div>
+</ion-content>

@@ -1,0 +1,98 @@
+<!--
+  Generated template for the DataPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar transparent>
+    <ion-title>数据</ion-title>
+    <ion-buttons end no-margin>
+      <button [disabled]="lock" [navPush]="pages.filter" [navParams]="opt" color="white" padding-right-12 ion-button
+        clear>
+        筛选
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <loading mess="暂无数据" [status]="all" *ngIf="!all else entry"></loading>
+  <ng-template #entry>
+    <div class="condition">
+      <h2>
+        <ion-icon name="pin"></ion-icon>{{opt.areaText}}
+      </h2>
+      <p>{{opt.gradeText}}</p>
+      <button *ngIf="all.CanShowToday" no-margin round free ion-button color="white" icon-left [navPush]="pages.today">
+        <ion-icon no-padding name="itoday"></ion-icon>
+        <span style="font-size: 1.5rem" ion-text color="primary">今日营收</span>
+      </button>
+    </div>
+
+    <ion-card>
+      <ion-card-header line-bottom>
+        <p>营收数据(元)</p>
+        <p>{{(study+errbook+video).toFixed(2) | revenue}}</p>
+        <p>{{opt.param.time | time}}</p>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row margin-top>
+          <ion-col>
+            <p>学校数(所)</p>
+            <p>{{all.AllSchoolCount || '0'}}</p>
+          </ion-col>
+          <ion-col>
+            <p>考生数(人)</p>
+            <p>{{all.PubExamStudentCount || '0'}}</p>
+          </ion-col>
+          <ion-col>
+            <p>考试数(场)</p>
+            <p>{{all.SmallExam+all.SchoolExam+all.UnionExam || '0'}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-list list-cover>
+      <button [navPush]="pages.schools" [navParams]="opt" ion-item>
+        <ion-icon name="ischools" item-left></ion-icon>
+        <h2>学校列表</h2>
+        <p>{{all.AllSchoolCount || '0'}}所</p>
+      </button>
+      <button (touch)="goTest()" ion-item>
+        <ion-icon name="iexam" item-left></ion-icon>
+        <h2>考试详情</h2>
+        <p>{{all.SmallExam+all.SchoolExam+all.UnionExam || '0'}}场</p>
+      </button>
+      <button (touch)="goOperation()" ion-item>
+        <ion-icon name="ioperation" item-left></ion-icon>
+        <h2>运营数据</h2>
+        <p>查分访问量{{all.ViewPV || '0'}}</p>
+      </button>
+      <button (touch)="goRevenue()" ion-item>
+        <ion-icon name="irevenue" item-left></ion-icon>
+        <h2>营收数据</h2>
+        <p>{{(study+errbook+video).toFixed(2) || '0'}}元</p>
+      </button>
+    </ion-list>
+  </ng-template>
+</ion-content>
+<ion-footer no-border *ngIf="!all?.CanDownLoad">
+  <ion-icon (touch)="download()" *ngIf="isshow" name="idownload"></ion-icon>
+  <div *ngIf="progress" class="c100 p{{now}} small blue">
+    <span>{{now}}%</span>
+    <div class="slice">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+  </div>
+  <ion-toolbar>
+    <ion-row nowrap>
+      <button (touch)="download()" no-padding no-margin col-8 ion-button>下载表格</button>
+      <button [navPush]="pages.downloads" [navParams]="{isAll:true}" no-padding no-margin col-4 free ion-button>
+        下载列表
+      </button>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

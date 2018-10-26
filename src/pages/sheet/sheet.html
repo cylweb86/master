@@ -1,0 +1,109 @@
+<!--
+  Generated template for the SheetmessagesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header line-bottom>
+  <ion-navbar color="white">
+    <ion-title>{{sheet?.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngIf="sheet;else loading">
+    <div class="summary" padding>
+      <p>
+        <span>状&emsp;&emsp;态</span>
+        <span class="status" ion-text [color]="sheet.status==1?'red':sheet.status==2?'green':'text'">{{ sheet.status==1? '正在处理': sheet.status | status }}</span>
+      </p>
+      <p>
+        <span>工单编号</span>
+        <span>{{sheet.code}}</span>
+      </p>
+      <p>
+        <span>提交时间</span>
+        <span>{{sheet.createTime}}</span>
+      </p>
+      <p>
+        <span>类&emsp;&emsp;型</span>
+        <span>{{sheet.type | type}}</span>
+      </p>
+      <p>
+        <span style="letter-spacing: 2px">优 先 级</span>
+        <span>{{sheet.level | level}}</span>
+      </p>
+      <p>
+        <span>预计工时</span>
+        <span>{{sheet.exceptTime}}之前完成</span>
+      </p>
+    </div>
+    <div class="block" padding style="position: relative;">
+      <div ion-text color="gray9">内容描述</div>
+      <div class="contendesc" margin-bottom>
+        <div margin-top style="font-size:14px">
+          {{sheet['contents'][0].description}}
+        </div>
+        <div class="imgdesc" margin-top>
+          <img-lazy *ngFor="let item of sheet.contents[0].images;let i = index" [src]="item" [imgviewer]="{images:sheet['contents'][0]['images'],title:'内容图片预览',initialSlide:i}"
+            alt="图片"></img-lazy>
+        </div>
+      </div>
+      <div *ngIf="switch||add.length<=3">
+        <div class="addmore" *ngFor="let v of add;let i = index">
+          <span class="addindex" margin-right-8>补充{{i+1}}</span>
+          <span class="addtime">{{v.time}}</span>
+          <p margin-vertical>
+            {{v.description}}
+          </p>
+          <div class="addimages">
+            <img-lazy *ngFor="let val of v.images;let i = index" [src]="val" [imgviewer]="{images:v.images,title:'补充图片预览',initialSlide:i}"
+              alt="图片"></img-lazy>
+          </div>
+        </div>
+      </div>
+      <a event="sheet_control" *ngIf="add.length>3" class="switches">
+        <ion-icon event="sheet_arrow" [name]="switch ? 'arrow-up': 'arrow-down'" (touch)="switch =!switch"></ion-icon>
+      </a>
+    </div>
+    <div *ngIf="sheet.responses.length" class="block" padding-horizontal padding-bottom>
+      <p class="replytitle" padding-vertical>工单回复</p>
+      <div class="realreplay" *ngFor="let item of sheet.responses">
+        <div class="innerreplay">
+          <img margin-right src="assets/images/avatar.png">
+          <span margin-right>{{item.name}}</span>
+          <span class="time">{{item.time | differtime}}</span>
+        </div>
+        <p class="describe" margin-top padding>
+          {{item.description}}
+          <span class="triangle-border tb-border"></span>
+          <span class="triangle-border tb-background"></span>
+        </p>
+        <div class="replyimgs" *ngIf="item.images">
+          <img-lazy *ngFor="let value of item.images;let id = index" [imgviewer]="{images:item.images,title:'回复图片预览',initialSlide:id}"
+            [src]="value" alt="图片"></img-lazy>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <loading [status]="sheet"></loading>
+  </ng-template>
+</ion-content>
+<ion-footer no-border padding-horizontal>
+  <ion-toolbar>
+    <ng-container *ngIf="sheet;else empty">
+      <ion-row justify-content-between align-items-center>
+        <button *ngIf="sheet.status==1" class="half" block ion-button (touch)="doIssue('cancel')">撤回工单</button>
+        <button *ngIf="sheet.status==1" class="half" block ion-button (touch)="addcon()">内容补充</button>
+        <button *ngIf="sheet.status!=1" ion-button block (touch)="doIssue('restart')">重新开启</button>
+      </ion-row>
+    </ng-container>
+    <ng-template #empty>
+      <div></div>
+    </ng-template>
+  </ion-toolbar>
+</ion-footer>

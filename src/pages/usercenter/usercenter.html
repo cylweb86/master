@@ -1,0 +1,35 @@
+<!--
+  Generated template for the UsercenterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>我的</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-item no-lines class="info">
+    <ion-avatar item-left>
+      <img src="assets/images/avatar.png">
+    </ion-avatar>
+    <h2 class="name">{{name}}</h2>
+    <p class="phone">电话：{{phone}}</p>
+  </ion-item>
+  <div class="middle-box"></div>
+  <ion-item-group margin-bottom class="usergroup" padding-top>
+    <button event="usercenter_goPersonal" ion-item [navPush]="pages.personal">
+      <ion-icon item-left name="ipersonal"></ion-icon>
+      个人信息
+    </button>
+    <button event="usercenter_goPassword" ion-item [navPush]="pages.password">
+      <ion-icon item-left name="ipassword"></ion-icon>
+      修改密码
+    </button>
+    <button ion-item [navPush]="pages.setup" event="usercenter_goSetup">
+      <ion-icon item-left name="isetup"></ion-icon>
+      设置
+    </button>
+  </ion-item-group>
+</ion-content>

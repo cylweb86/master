@@ -1,0 +1,28 @@
+<!--
+  Generated template for the ArrangenavPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>约考</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <loading mess="暂无信息" [status]="right" *ngIf="!right else entry"></loading>
+  <ng-template #entry>
+    <ion-card (touch)="goInitiate()">
+      <p>约考发起信息</p>
+      <p>INITIATING INFORMATION</p>
+    </ion-card>
+    <ion-card (touch)="goRelevant()">
+      <p>约考相关信息</p>
+      <p>RELEVANT INFORMATION</p>
+    </ion-card>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,726 @@
+  // http://ionicframework.com/docs/theming/
+  // App Global Sass
+  // --------------------------------------------------
+  // Put style rules here that you want to apply globally. These
+  // styles are for the entire app and not just one component.
+  // Additionally, this file can be also used as an entry point
+  // to import other Sass files to be included in the output CSS.
+  //
+  // Shared Sass variables, which can be used to adjust Ionic's
+  // default Sass variables, belong in "theme/variables.scss".
+  //
+  // To declare rules for a specific mode, create a child rule
+  // for the .md, .ios, or .wp mode classes. The mode class is
+  // automatically applied to the <body> element in the app.
+
+  .tab-button-icon {
+    height: 30px !important;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(90deg);
+    }
+
+    50% {
+      transform: rotate(180deg);
+    }
+
+    75% {
+      transform: rotate(270deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotate360 {
+    animation: spin .8s linear forwards infinite !important;
+  }
+
+  // 重置返回按钮的大小
+  .back-button-icon {
+    font-size: 4rem;
+  }
+
+  .picker-toolbar-multi-picker-cancel {
+    text-align: left !important;
+  }
+
+  .picker-opts {
+    font-size: 16px !important;
+
+    .picker-opt {
+      font-size: 16px !important;
+    }
+  }
+
+  .headChoice {
+    .alert-title {
+      margin-top: 0;
+    }
+
+    .alert-head {
+      border-bottom: 0.55px solid #dbdbdf;
+      padding: 8px 16px 8px;
+    }
+
+    .alert-message {
+      text-align: left;
+      padding: 10px 16px 16px;
+      line-height: 20px;
+    }
+
+    .alert-tappable {
+      background: #f8f8f8;
+    }
+  }
+
+  .timePicker {
+    .alert-head {
+      padding: 8px 16px 3px;
+    }
+
+    .alert-title {
+      margin-top: 0;
+    }
+
+    .alert-message:empty {
+      padding: 0 0 5px;
+    }
+
+    .alert-tappable {
+      background: #f8f8f8;
+    }
+  }
+
+  .trendmsg {
+    .alert-head {
+      padding: 0;
+
+      .alert-title {
+        font-weight: bold;
+        margin: 12px 0;
+      }
+    }
+
+    .alert-message {
+      text-align: left;
+      padding: 0 16px 16px 16px;
+      line-height: 20px;
+
+      p {
+        &:not(:first-of-type) {
+          padding-top: 3px;
+        }
+      }
+    }
+  }
+
+  .alertcomfire {
+    .alert-wrapper {
+      width: 80%;
+      border-radius: 4px;
+
+      .alert-head {
+        padding: 18px 0 0;
+
+        .alert-title {
+          font-weight: normal;
+          color: #222;
+          margin: 0;
+        }
+      }
+
+      .alert-message {
+        padding: 18px 0 22px;
+
+        p {
+          text-align: left;
+          padding: 0 16px;
+          font-size: 14px;
+
+          &:first-of-type {
+            padding-bottom: 12px;
+          }
+
+          &:not(:nth-child(2)) {
+            padding-top: 2px;
+          }
+        }
+      }
+
+      .alert-button-group {
+        padding: 0 32px 20px;
+        justify-content: space-between;
+
+        .alert-button {
+          border: none;
+          height: 28px;
+          width: 45%;
+          max-width: 45%;
+          min-width: 45%;
+          flex: 0;
+          border-radius: 3px;
+
+          &:last-of-type {
+            background: #E6EBF0;
+
+            span {
+              color: #999;
+              font-weight: normal;
+              font-size: 13px;
+            }
+          }
+
+          &:first-of-type {
+            background: linear-gradient(to left, #2684ff, #0fa7ff);
+
+            span {
+              font-weight: normal;
+              color: white;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .toolbar-title {
+    color: color($colors, dark);
+    font-weight: normal;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  ion-app {
+    color: color($colors, text);
+  }
+
+  ion-spinner {
+    height: 21px;
+    width: 21px;
+  }
+
+  ion-infinite-scroll-content {
+    min-height: 45px;
+  }
+
+  .button-default:not([free]) {
+    background: linear-gradient(to left, #2684ff, #0fa7ff);
+  }
+
+  .button.activated {
+    opacity: .5;
+  }
+
+  [text-strong] {
+    font-weight: 600 !important;
+  }
+
+  [box-shadow] {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  }
+
+  [no-will-change]>.scroll-content {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: initial;
+    will-change: auto;
+  }
+
+  [colorful] {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    font-size: 3rem;
+  }
+
+  [primary] {
+    color: color($colors, primary) !important;
+  }
+
+  span[primary] {
+    padding: 0 3px;
+  }
+
+  .content {
+
+    ion-footer,
+    ion-header {
+      position: fixed;
+    }
+  }
+
+  .footer .toolbar:first-child .toolbar-background {
+    border: none;
+  }
+
+  .footer .toolbar {
+    padding: 0 !important;
+  }
+
+  .footer ion-title {
+    padding: 0 0px 1px;
+  }
+
+  .blur {
+    background: rgba(255, 255, 255, .85);
+  }
+
+  a:active,
+  [interactive]:active {
+    opacity: .4;
+  }
+
+  [ol]:before {
+    content: '';
+    background: color($colors, primary);
+    margin-right: 8px;
+    display: inline-block;
+    height: 18px;
+    width: 4px;
+    vertical-align: sub;
+    border-radius: 2px;
+  }
+
+  .header {
+    .toolbar:last-child:not([border]) .toolbar-background {
+      border: none !important;
+    }
+
+    .toolbar~.toolbar {
+      min-height: 40px;
+    }
+  }
+
+  /* border style */
+
+  .border-top {
+    height: 0.55px;
+    content: '';
+    width: 100%; // border-bottom: 1px solid rgba(color($colors, gray6), .8);
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: scaleY(0.35); // z-index: 10;
+  }
+
+  .border-bottom {
+    height: 0.55px;
+    content: '';
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    right: 0;
+    top: calc(100% - 1px);
+    transform: scaleY(0.35); // z-index: 10;
+  }
+
+  .tabbar,
+  [line-top] {
+    border-top: none !important;
+
+    &:before {
+      @extend .border-top;
+    }
+  }
+
+  .list-header-ios,
+  [line-bottom] {
+    border-bottom: none !important;
+
+    &:after {
+      @extend .border-bottom;
+    }
+  }
+
+  [line-top],
+  [line-bottom] {
+    position: relative;
+  }
+
+  .item {
+    color: color($colors, text);
+
+    .input-wrapper>ion-label[fixed] {
+      flex: 0 0 80px;
+      width: 80px;
+      min-width: 80px;
+      max-width: 200px;
+    }
+  }
+
+  .break {
+    padding: 12px 16px 10px 16px;
+    color: color($colors, gray9);
+    font-size: 1.5rem;
+    background: $background-color;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+
+  .row>a {
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    margin: 0;
+    min-height: 1px;
+    flex-grow: 1;
+  }
+
+  [split-line]>*:not(:last-child) {
+    &:after {
+      content: '';
+      height: 80%;
+      float: right;
+      width: 1px;
+      background: rgba(0, 0, 0, 0.15);
+      margin: 3px 0;
+      transform: scaleX(0.5);
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .col {
+    text-align: center;
+  }
+
+  .toast-tip {
+    .toast-button {
+      margin-top: 0.2rem;
+      padding: 12px 16px 12px;
+      height: 30px;
+    }
+  }
+
+  /**
+  */
+
+  /*
+  // --------------------------------------------------
+  //icon bounce*/
+
+  @keyframes icon-zoom {
+    0% {
+      font-size: $tabs-ios-tab-icon-size; //transform: scale3d(1, 1, 1) translateY(0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    65% {
+      font-size: 36px; //transform: scale3d(1.1, 1.16, 1) translateY(-2px);
+      transform: translate3d(0, -4px, 0);
+    }
+
+    100% {
+      font-size: 30px; //font-size: 30px; //transform: scale3d(1, 1, 1) translateY(0);
+      transform: translate3d(0, -2px, 0);
+    }
+  }
+
+  .tab-button {
+    overflow: visible;
+
+    &[aria-selected=true] .tab-button-icon {
+      font-size: 30px;
+      transform: translate3d(0, -2px, 0);
+      overflow: visible;
+      animation: icon-zoom 0.32s 80ms;
+    }
+  }
+
+  [padding-vertical-12] {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  [padding-horizontal-12] {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  [padding-top-12] {
+    padding-top: 12px;
+  }
+
+  [padding-bottom-12] {
+    padding-bottom: 12px;
+  }
+
+  [padding-left-12] {
+    padding-left: 12px;
+  }
+
+  [padding-right-12] {
+    padding-right: 12px;
+  }
+
+  [padding-12] {
+    padding: 12px;
+  }
+
+  [margin-vertical-12] {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  [margin-horizontal-12] {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  [margin-top-12] {
+    margin-top: 12px;
+  }
+
+  [margin-bottom-12] {
+    margin-bottom: 12px;
+  }
+
+  [margin-left-12] {
+    margin-left: 12px;
+  }
+
+  [margin-right-12] {
+    margin-right: 12px;
+  }
+
+  [margin-12] {
+    margin: 12px;
+  }
+
+  [padding-vertical-10] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  [padding-horizontal-10] {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  [padding-top-10] {
+    padding-top: 10px;
+  }
+
+  [padding-bottom-10] {
+    padding-bottom: 10px;
+  }
+
+  [padding-left-10] {
+    padding-left: 10px;
+  }
+
+  [padding-right-10] {
+    padding-right: 10px;
+  }
+
+  [padding-10] {
+    padding: 10px;
+  }
+
+  [margin-vertical-10] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  [margin-horizontal-10] {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  [margin-top-10] {
+    margin-top: 10px;
+  }
+
+  [margin-bottom-10] {
+    margin-bottom: 10px;
+  }
+
+  [margin-left-10] {
+    margin-left: 10px;
+  }
+
+  [margin-right-10] {
+    margin-right: 10px;
+  }
+
+  [margin-10] {
+    margin: 10px;
+  }
+
+  [padding-vertical-8] {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  [padding-horizontal-8] {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  [padding-top-8] {
+    padding-top: 8px;
+  }
+
+  [padding-bottom-8] {
+    padding-bottom: 8px;
+  }
+
+  [padding-left-8] {
+    padding-left: 8px;
+  }
+
+  [padding-right-8] {
+    padding-right: 8px;
+  }
+
+  [padding-8] {
+    padding: 8px;
+  }
+
+  [margin-vertical-8] {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  [margin-horizontal-8] {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  [margin-top-8] {
+    margin-top: 8px;
+  }
+
+  [margin-bottom-8] {
+    margin-bottom: 8px;
+  }
+
+  [margin-left-8] {
+    margin-left: 8px;
+  }
+
+  [margin-right-8] {
+    margin-right: 8px;
+  }
+
+  [margin-8] {
+    margin: 8px;
+  }
+
+  .font12 {
+    font-size: 1.2rem !important;
+  }
+
+  .font14 {
+    font-size: 1.4rem !important;
+  }
+
+  .font16 {
+    font-size: 1.6rem !important;
+  }
+
+  .font17 {
+    font-size: 1.7rem !important;
+  }
+
+  .font18 {
+    font-size: 1.8rem !important;
+  }
+
+  [list-cover] {
+    .item-block:last-child {
+      border-bottom: none;
+    }
+
+    .item-block:not([no-lines]) .item-inner {
+      border-bottom: none !important;
+
+      &:after {
+        @extend .border-bottom;
+        width: calc(100% - 32px);
+        margin: 0 16px;
+      }
+    }
+
+    .item-block:first-child {
+      border-top: none;
+    }
+  }
+
+  [item-cover] {
+    .item-ios.item-block .item-inner {
+      border-bottom: none;
+
+      &:after {
+        @extend .border-bottom;
+      }
+    }
+
+    .item-block:first-child {
+      border-top: none;
+    }
+
+    .item-block:last-child {
+      border-bottom: none;
+    }
+
+    .item-block:last-child .item-inner {
+      border-bottom: none;
+    }
+  }
+
+  .item-block:first-child {
+    border-top: none;
+  }
+
+  .item-block:last-child {
+    border-bottom: none;
+  }
+
+  .item-block:last-child .item-inner {
+    border-bottom: none;
+  }
+
+  .groupcover {
+    .item-block .item-inner {
+      border-bottom: 0;
+      position: relative;
+
+      &:after {
+        @extend .border-bottom;
+      }
+    }
+  }
+
+  [card-full] {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .list-ios>.item-block:last-child,
+  .list-ios>.item-wrapper:last-child .item-block {
+    border-bottom: 0;
+  }
+
+  .datetime-text,
+  .datetime-placeholder {
+    color: color($colors, note) !important;
+  }

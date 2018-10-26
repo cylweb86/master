@@ -1,0 +1,12 @@
+<!-- Generated template for the PhonecodeComponent component,add by leo zhang 201710010101 -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>忘记密码</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <h2>请输入验证码</h2>
+  <div margin-bottom>验证码已发送至手机：<span ion-text color="blue">+86 {{phone}}</span></div>
+  <ion-input #textarea type="integer" maxlength="6" row="1" name="code" (onChange)="verify($event)"></ion-input>
+  <a class="btn" (click)="sendcode()" [attr.disabled]="interval>0?'':null">重新发送<span *ngIf="interval">({{interval}}s)</span></a>
+</ion-content>

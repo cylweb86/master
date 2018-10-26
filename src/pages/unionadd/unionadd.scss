@@ -1,0 +1,36 @@
+page-unionadd {
+  .content {
+    background: #fff;
+  }
+  .content-inner {
+    position: relative;
+    margin: 16px 0;
+    background: #ffffff;
+
+    ion-textarea {
+      font-size: 1.6rem;
+      text-align: right;
+
+      &:after {
+        content: attr(length)'/'attr(maxlength);
+        color: color($colors, gray9);
+        padding: 0 16px;
+        position: relative;
+        top: -16px;
+        font-size: 1.2rem;
+      }
+    }
+
+    .text-input {
+      text-align: left;
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  .footer .toolbar {
+    padding: 0 16px !important;
+    background: #fff;
+  }
+
+}

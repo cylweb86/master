@@ -1,0 +1,48 @@
+page-datarevenue {
+  .back-button-icon {
+    color: #fff;
+  }
+  .content {
+    background: #fff;
+    &::before {
+      content: "";
+      display: block;
+      background: linear-gradient(to left, #2684ff, #0fa7ff);
+      width: 100%;
+      height: 225px;
+    }
+  }
+  .toolbar-title {
+    color: #fff;
+  }
+  .general {
+    background: linear-gradient(to left, #2684ff, #0fa7ff);
+    color: #fff;
+    padding: 16px 18px 30px 16px;
+    h2 {
+      font-size: 1.6rem;
+      color: #fff;
+      padding-top: 8px;
+      padding-bottom: 0;
+      margin: 0;
+      .icon {
+        margin-right: 5px;
+        font-size: 1.6rem;
+      }
+    }
+    .time {
+      padding-left: 14px;
+    }
+    a {
+      color: #fff;
+      font-size: 3.2rem;
+      padding: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .icon {
+        font-size: .7em;
+      }
+    }
+  }
+}

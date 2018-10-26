@@ -1,0 +1,52 @@
+<!--
+  Generated template for the RelativesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-backdrop *ngIf="modal" tappable (touch)="modal=!modal"></ion-backdrop>
+<div *ngIf="modal" (onChanged)="changed($event)" [style.height.px]="43*stateArr.length+29" class="alertcon" delegate="button"
+  passive="false" alive="true" [(value)]="choice">
+  <button *ngFor="let val of stateArr" [value]="val">
+    <i></i>
+    <span>{{val}}</span>
+  </button>
+</div>
+<ion-header [attr.line-bottom]="isshow?'':null">
+  <ion-navbar>
+    <ion-title>约考相关信息</ion-title>
+    <ion-buttons end no-margin>
+      <button padding-right-12 ion-button clear (touch)="modal=true">
+        筛选
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <p class="report-head">
+    <button no-margin round free ion-button color="white" icon-left>
+      <ion-icon name="icalendar" color="primary"></ion-icon>
+      <ion-datetime no-padding displayFormat="YYYY年M月" [(ngModel)]="myDate" [max]="max" pickerFormat="YYYY-MM" cancelText="取消"
+        doneText="完成" (ionChange)="timeChange()"></ion-datetime>
+    </button>
+  </p>
+  <loading mess="暂无数据" [status]="arranges" *ngIf="!arranges else entry"></loading>
+  <ng-template #entry>
+    <ion-item-group list-cover>
+      <button ion-item *ngFor="let val of arranges" [navPush]="pages.appoint" [navParams]="{guid:val.Guid}">
+        <h3>
+          <span class="font16">{{val.SchoolName | shorten:15}}</span>
+        </h3>
+        <p ion-text color="gray9">提交时间:{{val.CreateTime}}</p>
+        <p ion-text [ngClass]="{'pending':val.JoinState==2,'do':val.JoinState==20,'doing':val.JoinState==30,'success':val.JoinState==40}">{{val.JoinState | join}}</p>
+      </button>
+    </ion-item-group>
+    <ion-infinite-scroll *ngIf="arranges?.length<total" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ng-template>
+</ion-content>

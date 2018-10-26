@@ -1,0 +1,125 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+// 小面积使用,用于特别需要强调和突出的文字,按钮和icon
+$colors: (
+primary: #38acff,
+plus:#3396fb,
+secondary: #32db64,
+danger: #f53d3d,
+light: #f4f4f4,
+// 用于重要级文字信息、内页标题
+dark: #222,
+// 用于普通级段落信息 引导词
+text:#414a60,
+// 用于辅助、次要的文字信息、普通按钮描边
+gray9: #999999,
+transparent:transparent,
+white:#ffffff,
+yellow:#fae100,
+green:#45c631,
+// 用于内容区域的底色
+content:#f2f3f4,
+red:#F25542,
+background:#f2f3f4,
+gray6:#666666,
+blue:#73b4fb,
+note:#aeacb4
+);
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+@import "ionic.ionicons";
+
+// Iconfonts
+@import "../assets/iconfonts/iconfont";
+// Fonts
+// --------------------------------------------------
+@import "roboto";
+@import "noto-sans";
+
+//linear-gradient(#11a4ff,#2487ff)
+// Variables
+// --------------------------------------------------
+// Overriding Ionic Sass
+$text-color:color($colors, text);
+$toolbar-background:color($colors, #fff);
+$toolbar-ios-button-font-size:1.6rem;
+$tabs-ios-tab-icon-size:27px;
+$background-color:color($colors, background);
+$item-ios-body-text-font-size:1.6rem;
+$item-ios-divider-background:color($colors, transparent);
+$item-ios-divider-color:color($colors, gray9);
+$item-ios-divider-font-size:1.2rem;
+$tabs-background:color($colors, white);
+
+// $segment-button-md-font-size:1.4rem;
+// $segment-button-md-font-weight:400;
+// $segment-button-md-height:3.6rem;
+$card-ios-header-font-weight:normal;
+
+$button-ios-height:2.5em;
+
+$refresher-border-color:color($colors, transparent);
+$refresher-icon-color:color($colors, gray9);
+$refresher-icon-font-size:22px;
+$refresher-text-color:color($colors, gray9);
+$refresher-text-font-size:14px;
+$infinite-scroll-loading-color:color($colors, gray9);
+$infinite-scroll-loading-margin-bottom:10px;
+$card-ios-font-size:1.5rem;
+$card-ios-box-shadow-color:rgba(0, 0, 0, .15);
+// 重写返回按钮的颜色
+//$toolbar-md-button-color :color($colors, text);
+$toolbar-ios-button-color :color($colors, text);
+
+
+$segment-button-ios-background-color-activated:color($colors, primary);
+$segment-button-ios-text-color:color($colors, text);

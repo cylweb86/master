@@ -1,0 +1,22 @@
+page-sheets {
+  .segment-button {
+    font-size: 1.4rem !important;
+  }
+  .content {
+    background: color($colors, background);
+  }
+  .footer .toolbar {
+    padding: 0 16px !important;
+    background: #fff;
+  }
+  .list {
+    h3 {
+      font-size: 16px;
+      img {
+        width: 45px;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}

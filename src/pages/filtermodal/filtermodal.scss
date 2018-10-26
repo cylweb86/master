@@ -1,0 +1,77 @@
+page-filtermodal {
+
+  // .filter-head{
+  //   position: fixed;
+  //   width: 100%;
+  // }
+  button,
+  .item {
+    font-size: 1.4rem;
+  }
+
+  .item-block {
+    min-height: 3.3rem;
+  }
+
+  .label {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  background: rgba(0, 0, 0, .55);
+
+  .header {
+    padding: 12px 0;
+
+    span {
+      font-size: 1.7rem;
+      font-weight: 400;
+    }
+
+    .icon {
+      font-size: 2.8rem;
+      line-height: .7;
+      position: relative;
+      right: 16px;
+    }
+  }
+
+  .filter {
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    max-height: 450px;
+
+  }
+
+  .list {
+    margin: 0;
+    overflow: scroll;
+    max-height: 368px;
+    padding-bottom: 8px;
+  }
+
+  .selected {
+    color: color($colors, primary);
+    border-bottom: 1px solid color($colors, primary);
+  }
+
+  .checked {
+    color: color($colors, primary);
+  }
+
+  .btns {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-left: 4px;
+
+    button {
+      padding: 12px;
+      background: transparent;
+      color: color($colors, text);
+    }
+  }
+}

@@ -1,0 +1,163 @@
+$ionicons-font-path: "../assets/iconfonts";
+
+@font-face {
+  font-family: "Ionicons";
+  src: url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'), url('iconfont.ttf?t=1529464788587') format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('iconfont.svg?t=1529464788587#iconfont') format('svg');
+  /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ion-md-ihome-outline:before,
+.ion-md-ihome:before,
+.ion-ios-ihome-outline:before,
+.ion-ios-ihome:before {
+  content: "\e610";
+}
+
+.ion-md-iperson-outline:before,
+.ion-md-iperson:before,
+.ion-ios-iperson-outline:before,
+.ion-ios-iperson:before {
+  content: "\e60e";
+}
+
+.ion-md-inews-outline:before,
+.ion-md-inews:before,
+.ion-ios-inews-outline:before,
+.ion-ios-inews:before {
+  content: "\e60f";
+}
+
+.ion-ios-icalendar:before {
+  content: "\e611";
+}
+
+$ionicons-svg-path:'../assets/icon';
+
+.ion-ios-iexam:before {
+  background:url('#{$ionicons-svg-path}/exam.svg') center center no-repeat;
+}
+
+.ion-ios-idownload:before {
+  background:url('#{$ionicons-svg-path}/download.svg') center center no-repeat;
+}
+
+.ion-ios-isystemInfo:before {
+  background:url('#{$ionicons-svg-path}/systemInfo.svg') center center no-repeat;
+}
+
+.ion-ios-ischools:before {
+  background:url('#{$ionicons-svg-path}/schools.svg') center center no-repeat;
+}
+
+.ion-ios-irevenue:before {
+  background:url('#{$ionicons-svg-path}/revenue.svg') center center no-repeat;
+}
+
+.ion-ios-ioperation:before {
+  background:url('#{$ionicons-svg-path}/operation.svg') center center no-repeat;
+}
+
+.ion-ios-iattachment:before {
+  background:url('#{$ionicons-svg-path}/attachment.svg') center center no-repeat;
+}
+
+.ion-ios-ipassword:before {
+  background:url('#{$ionicons-svg-path}/password.svg') center center no-repeat;
+}
+
+.ion-ios-isetup:before {
+  background:url('#{$ionicons-svg-path}/setup.svg') center center no-repeat;
+}
+
+.ion-ios-icompany:before {
+  background:url('#{$ionicons-svg-path}/company.svg') center center no-repeat;
+}
+
+.ion-ios-ifile:before {
+  background:url('#{$ionicons-svg-path}/file.svg') center center no-repeat;
+}
+
+.ion-ios-iarea:before {
+  background:url('#{$ionicons-svg-path}/area.svg') center center no-repeat;
+}
+
+.ion-ios-isdownload:before {
+  background:url('#{$ionicons-svg-path}/sdownload.svg') center center no-repeat;
+}
+
+.ion-ios-ipersonal:before {
+  background: url('#{$ionicons-svg-path}/personal.svg') center center no-repeat;
+}
+
+.ion-ios-iclose:before {
+  background: url('#{$ionicons-svg-path}/close.svg') center center no-repeat;
+}
+
+.ion-ios-idown:before {
+  background: url('#{$ionicons-svg-path}/down.svg') center center no-repeat;
+}
+
+.ion-ios-itoday:before {
+  background: url('#{$ionicons-svg-path}/today.svg') center center no-repeat;
+}
+
+.ion-ios-inotice:before {
+  background: url('#{$ionicons-svg-path}/notice.svg') center center no-repeat;
+}
+
+.ion-ios-iexam,
+.ion-ios-idownload,
+.ion-ios-isystemInfo,
+.ion-ios-ischools,
+.ion-ios-irevenue,
+.ion-ios-ioperation,
+.ion-ios-iattachment,
+.ion-ios-ipassword,
+.ion-ios-isetup,
+.ion-ios-icompany,
+.ion-ios-ifile,
+.ion-ios-isdownload,
+.ion-ios-iarea,
+.ion-ios-ipersonal,
+.ion-ios-iclose,
+.ion-ios-idown,
+.ion-ios-itoday,
+.ion-ios-inotice {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.ion-ios-iexam:before,
+.ion-ios-idownload:before,
+.ion-ios-isystemInfo:before,
+.ion-ios-ischools:before,
+.ion-ios-irevenue:before,
+.ion-ios-ioperation:before,
+.ion-ios-iattachment:before,
+.ion-ios-ipassword:before,
+.ion-ios-isetup:before,
+.ion-ios-icompany:before,
+.ion-ios-ifile:before,
+.ion-ios-isdownload:before,
+.ion-ios-iarea:before,
+.ion-ios-ipersonal:before,
+.ion-ios-iclose:before,
+.ion-ios-idown:before,
+.ion-ios-itoday:before,
+.ion-ios-inotice:before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  vertical-align: top;
+  background-size: contain;
+}

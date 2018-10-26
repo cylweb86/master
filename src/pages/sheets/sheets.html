@@ -1,0 +1,50 @@
+<!--
+  Generated template for the SheetsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="white">
+    <ion-title>
+      <ion-segment (ionChange)="segmentChanged($event)" [ngModel]="activeIndex" [disabled]="refreshing">
+        <ion-segment-button value="0">
+          全部
+        </ion-segment-button>
+        <ion-segment-button value="1">
+          待处理
+          <span *ngIf="pendingCount">({{pendingCount}})</span>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)" *ngIf="sheets[activeIndex]">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <loading [mess]="activeIndex=='0' ? '没有工单' : '没有待处理工单'" [status]="sheets[activeIndex]" *ngIf="!sheets[activeIndex];else entry"></loading>
+  <ng-template #entry>
+    <ion-list list-cover margin-top-10 [attr.margin-bottom-12]="totals[activeIndex]<=sheets[activeIndex].length?'':null">
+      <button *ngFor="let item of sheets[activeIndex]" ion-item (touch)="goSheet(item)">
+        <h3>
+          <span>{{item.title|shorten:15}}</span>
+          <img *ngIf="item.hasMsg" src="assets/images/reply.png">
+        </h3>
+        <p>发布时间:{{item.time}}</p>
+        <p ion-text [color]="item.status==1?'red':item.status==2?'green':'text'">{{item.status | status}}</p>
+      </button>
+    </ion-list>
+    <ion-infinite-scroll *ngIf="totals[activeIndex]>sheets[activeIndex].length" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ng-template>
+</ion-content>
+<ion-footer no-border>
+  <ion-toolbar>
+    <button event="sheets_goIssue" [navPush]="pages.issue" block ion-button>
+      创建工单
+    </button>
+  </ion-toolbar>
+</ion-footer>

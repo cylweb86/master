@@ -1,0 +1,5 @@
+<img class="show" [hidden]="state!=1" [src]="src" (load)="onLoad()" (error)="onError()">
+<a [ngSwitch]="state" *ngIf="state!=1">
+   <img class="default" *ngSwitchCase="-1" src="assets/images/default.png">
+   <img style="width:15px;height:15px;position: absolute;top:0;left:0;right:0;bottom:0;margin:auto auto;" *ngSwitchCase="0" src="assets/images/loading.gif">
+</a>

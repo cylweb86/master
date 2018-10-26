@@ -1,0 +1,45 @@
+<!--
+  Generated template for the SchoolsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-searchbar [(ngModel)]="input" (ionInput)="onInput($event)" style="min-height:auto" *ngIf="switch&&isshow" placeholder="输入学校名称">
+    </ion-searchbar>
+    <ion-title *ngIf="!switch">学校列表</ion-title>
+    <ion-buttons right>
+      <button (touch)="cancel()" *ngIf="switch" ion-button clear>取消</button>
+      <button ion-button clear icon-only *ngIf="!switch" (touch)="switch=!switch">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  <loading [status]="tempSchools" *ngIf="!tempSchools else entry"></loading>
+  <ng-template #entry>
+    <p *ngIf="!switch">
+      {{opt?.areaText}}{{opt?.gradeText}}
+      <span primary>{{count}}</span>所
+    </p>
+    <ion-list list-cover [attr.margin-top-12]="switch?'':null">
+      <p *ngIf="!switch">
+        学校名
+      </p>
+      <button (touch)="goSdata(val)" ion-item *ngFor="let val of tempSchools">
+        <ion-avatar item-start>
+          <img src="assets/images/school.png">
+        </ion-avatar>
+        {{val.Name}}
+      </button>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="tempSchools?.length<schoolsCache.length">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ng-template>
+</ion-content>

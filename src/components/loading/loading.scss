@@ -1,0 +1,98 @@
+loading {
+  $back: $background-color; // .row {
+  //   height: 100%;
+  //   min-height: 200px;
+  //   width: 100%;
+  //   color: darken($back, 25%);
+  //   .icon {
+  //     font-size: 3em;
+  //   }
+  // }
+  .row {
+    padding-bottom: 10%; // height: 100%;
+    min-height: 200px;
+    align-items: center;
+    justify-content: center;
+    color: darken($background-color, 25%);
+    font-size: 3em;
+    .spinner-ios-bubbles circle {
+      fill: darken($background-color, 25%);
+    }
+    .col {
+      img {
+        max-width: 50%;
+        width: 10rem;
+        display: inline;
+      }
+      span {
+        display: block;
+        font-size: 1.4rem;
+        padding: 16px;
+      }
+    }
+  }
+
+  .animated-background {
+    line-height: 60px;
+    font-size: 4em;
+    color: #ddd;
+    font-style: oblique;
+
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear; //background: #f6f7f8;
+    background: $back;
+    background: -webkit-gradient(linear, left top, right top, color-stop(8%, $back), color-stop(18%, #fff), color-stop(33%, $back));
+    background: -webkit-linear-gradient(left, $back 8%, #fff 18%, $back 33%);
+    background: linear-gradient(to right, $back 8%, #fff 18%, $back 33%);
+    background-size: 800px 104px; // height: 96px;
+    position: relative;
+  }
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: -468px 0;
+    }
+    100% {
+      background-position: 468px 0;
+    }
+  }
+  .loading {
+    width: 100%;
+    height: 100%;
+    background: $back;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all .38s;
+    justify-content: center;
+    color: darken($back, 25%);
+    padding-bottom: 15%;
+    .icon {
+      font-size: 3em;
+    }
+  }
+
+  .mess {
+    width: 180px;
+    padding: 12px;
+  }
+
+
+  .enter-loading,
+  .leave-active-loading {
+    transform: translateY(-150px);
+  }
+  .enter-active-loading {
+    transform: translateY(0px);
+  }
+
+  .enter-nodata,
+  .leave-active-nodata {
+    opacity: 0;
+  }
+  .enter-active-nodata {
+    opacity: 1;
+  }
+}

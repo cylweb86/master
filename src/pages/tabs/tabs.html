@@ -1,0 +1,7 @@
+<ion-tabs [hasreq]="hasreq" [(check)]="check" selectedIndex="0" (checkChange)="checkChange($event)">
+  <ion-tab [root]="tab1Root" tabTitle="首页" tabIcon="ihome"></ion-tab>
+  <ion-tab [tabIcon]="!check?'inews':'ios-sync'" [rootParams]="hasreq" [root]="tab2Root" tabTitle="消息" [tabBadge]="hasreq?.homeMessage"
+    tabBadgeStyle="danger">
+  </ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="我的" tabIcon="iperson"></ion-tab>
+</ion-tabs>

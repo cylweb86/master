@@ -1,0 +1,48 @@
+<div class="trendHead" *ngIf="headline">
+  <a (touch)="navCtrl.pop()">
+    <ion-icon [color]="headline?'text':'white'" float-left name="arrow-back"></ion-icon>
+  </a>
+</div>
+<ion-content>
+  <loading msg="数据加载中..." mess="暂无数据" [status]="data" *ngIf="!data else entry"></loading>
+  <ng-template #entry>
+    <div class="trend-header">
+      <div>运营详情</div>
+      <div class="trend-btn" delegate="button" (onChanged)="changed($event)" [(value)]="time" passive="false" alive="true">
+        <button value="m">月</button>
+        <button value="q">季度</button>
+      </div>
+      <div>
+        <a (touch)="navCtrl.pop()">
+          <img src="assets/images/fork.png">
+        </a>
+      </div>
+    </div>
+    <div id="chart"></div>
+    <div class="trend-footer" delegate="button" (onChanged)="chtwo($event)" [(value)]="basics" passive="false" alive="true">
+      <button value="PayedUser">付费用户数</button>
+      <button value="PackageUser">套餐用户数</button>
+      <button value="ViewPV">查分访问量</button>
+      <button value="ViewStudentUV">查分访问人数</button>
+      <button value="BindUser">累计注册用户</button>
+      <button [value]="extend" #btn>
+        {{extend | operate}}
+        <ion-icon [name]="!switch?'md-arrow-dropdown':'md-arrow-dropup'" color="gray9"></ion-icon>
+      </button>
+      <div #mix *ngIf="switch" class="popover" delegate="button" (onChanged)="chthree($event)" [(value)]="extend" passive="false"
+        alive="true">
+        <button value="perExam" *ngIf="navParams.get('cansee')">人均收益</button>
+        <button value="perPage" *ngIf="navParams.get('cansee')">单张考卷收益</button>
+        <button value="checkRate">查分率</button>
+        <button value="payRate">缴费率</button>
+        <button value="ViewFreeStudentUV">免费查分人数</button>
+        <button value="ViewPayStudentUV">付费查分人数</button>
+        <button value="ViewFreePV">免费查分访问量</button>
+        <button value="ViewPayPV">付费查分访问量</button>
+        <button value="BindStudent">累计绑定学生数</button>
+        <button value="NewBindStudent">新增绑定学生数</button>
+        <button value="NewBindUser">新增注册用户数</button>
+      </div>
+    </div>
+  </ng-template>
+</ion-content>

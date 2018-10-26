@@ -1,0 +1,126 @@
+<!--
+  Generated template for the ArrangePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-backdrop tappable *ngIf="modal" (touch)="modal=!modal"></ion-backdrop>
+<div *ngIf="modal" class="reason">
+  <p>不通过原因</p>
+  <div class="alertcon" delegate="button" passive="false" alive="true" [(value)]="why">
+    <button *ngFor="let val of stateArr" [value]="val">
+      <i></i>
+      <span>{{val}}</span>
+    </button>
+  </div>
+  <div class="btn">
+    <button ion-button (touch)="comfire()">确定</button>
+    <button ion-button (touch)="modal=false">取消</button>
+  </div>
+</div>
+<ion-header line-bottom>
+  <ion-navbar>
+    <ion-title>{{arrange?.examName}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <loading mess="暂无数据" [status]="arrange" *ngIf="!arrange else entry"></loading>
+  <ng-template #entry>
+    <div class="summary" padding>
+      <p class="subject">
+        <span>考试名称</span>
+        <span [class.position]="switch">{{arrange?.examName || '暂无'}}</span>
+      </p>
+      <p>
+        <span>状&emsp;&emsp;态</span>
+        <span [ngClass]="{'pending':arrange.reviewState==10,'do':arrange.reviewState==20,'doing':arrange.reviewState==30,'success':arrange.reviewState==40,'fail':arrange.reviewState==50}">{{arrange?.reviewState
+          | arrange}}</span>
+      </p>
+      <p>
+        <span>发起学校</span>
+        <span>{{arrange?.schoolName || '暂无'}}</span>
+      </p>
+      <p>
+        <span style="letter-spacing: 2px">发 起 人</span>
+        <span>{{arrange?.sendName || '暂无'}}</span>
+      </p>
+      <p>
+        <span>职&emsp;&emsp;位</span>
+        <span>{{(arrange?.postName | job) || '暂无'}}</span>
+      </p>
+      <p>
+        <span>联系方式</span>
+        <span>{{arrange?.reviewPhone || '暂无'}}</span>
+      </p>
+      <p class="subject">
+        <span>约考科目</span>
+        <span>{{subject}}</span>
+      </p>
+      <p>
+        <span>约考年级</span>
+        <span>{{arrange.grade}}</span>
+      </p>
+      <p class="subject">
+        <span>考试时间</span>
+        <span>{{arrange.startTime}}&nbsp;至&nbsp;{{arrange.endTime}}</span>
+      </p>
+      <p class="longchina">
+        <span>是否公开发布</span>
+        <span>{{!arrange.inSquare?'否':'是'}}</span>
+      </p>
+      <p class="longstr">
+        <span>报名截止日期</span>
+        <span>{{arrange.enrollEndTime}}</span>
+      </p>
+      <p *ngIf="arrange.reviewState==0||arrange.reviewState==50">
+        <span>关闭理由</span>
+        <span>{{arrange.reviemNote || '约考失败'}}</span>
+      </p>
+      <p class="subject">
+        <span>考试范围</span>
+        <span>{{arrange.kmsDesc}}</span>
+      </p>
+      <p>
+        <span>命题方式</span>
+        <span>{{arrange.nameType | topicnew}}</span>
+      </p>
+    </div>
+    <div class="empty" *ngIf="arrange.otherSchool.length"></div>
+    <div class="examine" *ngIf="arrange.otherSchool.length">
+      <p>报名学校（{{arrange.otherSchool?.length}}所）</p>
+      <ion-item-group list-cover>
+        <button ion-item *ngFor="let val of arrange.otherSchool" [navPush]="pages.appoint" [navParams]="{guid:val.guid}">
+          <ion-avatar item-start>
+            <img style="width: 36px;height: 36px;" src="assets/images/appoint.png">
+          </ion-avatar>
+          <ion-label item-start>
+            {{val.schoolName}}
+          </ion-label>
+          <ion-note item-end [ngClass]="{'pending':val.joinState==2,'do':val.joinState==20,'doing':val.joinState==30,'success':val.joinState==40}">
+            {{val.joinState | join}}
+          </ion-note>
+        </button>
+      </ion-item-group>
+    </div>
+    <div class="ft" *ngIf="canfoot&&navParams.get('audited')&&arrange.reviewState==10"></div>
+  </ng-template>
+</ion-content>
+
+<ion-footer no-border padding-horizontal *ngIf="canfoot&&navParams.get('audited')">
+  <ion-toolbar>
+    <ng-container *ngIf="arrange;else empty">
+      <ion-row *ngIf="arrange.reviewState==10" justify-content-between align-items-center>
+        <button block ion-button (touch)="modal=true">审核不通过</button>
+        <button block ion-button (touch)="agree()">审核通过</button>
+      </ion-row>
+    </ng-container>
+    <ng-template #empty>
+      <div></div>
+    </ng-template>
+  </ion-toolbar>
+</ion-footer>

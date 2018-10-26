@@ -1,0 +1,60 @@
+page-home {
+  .shadowcon {
+    box-shadow: 0 5px 12px #d7edff !important;
+  }
+  .toolbar-title {
+    color: color($colors, white);
+  }
+  .content {
+    background: #fff url("../assets/images/bgheader.png") center top no-repeat;
+    background-size: contain;
+  }
+  .nocons {
+    padding: 0 16px;
+    display: flex;
+    margin-bottom: 16px;
+    div {
+      width: 48%;
+      background: #fff;
+      border-radius: 3px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+      &:first-of-type {
+        margin-right: 4%;
+      }
+    }
+  }
+  .cons {
+    padding: 0 16px;
+    display: flex;
+    margin-bottom: 16px;
+    &:first-of-type {
+      margin-top: 30px;
+    }
+    .some {
+      padding: 18px 0;
+      text-align: center;
+      width: 48%;
+      background: #fff;
+      border-radius: 3px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+      &:first-of-type {
+        margin-right: 4%;
+      }
+      img {
+        width: 60%;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 8px;
+      }
+    }
+    .empty {
+      width: 48%;
+      background: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.08);
+      &:first-of-type {
+        margin-right: 4%;
+      }
+    }
+  }
+}

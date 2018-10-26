@@ -1,0 +1,29 @@
+<div class="trendHead" *ngIf="headline">
+  <a (touch)="navCtrl.pop()">
+    <ion-icon [color]="headline?'text':'white'" float-left name="arrow-back"></ion-icon>
+  </a>
+</div>
+<ion-content>
+  <loading msg="数据加载中..." mess="暂无数据" [status]="data" *ngIf="!data else entry"></loading>
+  <ng-template #entry>
+    <div class="trend-header">
+      <div>营收数据</div>
+      <div class="trend-btn" delegate="button" (onChanged)="changed($event)" [(value)]="time" passive="false" alive="true">
+        <button value="m">月</button>
+        <button value="q">季度</button>
+      </div>
+      <div>
+        <a (touch)="navCtrl.pop()">
+          <img src="assets/images/fork.png">
+        </a>
+      </div>
+    </div>
+    <div id="chart"></div>
+    <div class="trend-footer" delegate="button" (onChanged)="chtwo($event)" [(value)]="basics" passive="false" alive="true">
+      <button value="total">营收总金额</button>
+      <button value="learn">学贝充值收入</button>
+      <!-- <button value="video">视频套餐收入</button> -->
+      <button value="err">错题本收入</button>
+    </div>
+  </ng-template>
+</ion-content>

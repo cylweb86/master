@@ -1,0 +1,12 @@
+<button ion-button block (touch)="onTap()" type="submit" [disabled]="state!==false">
+  <ion-spinner color="white" *ngIf="state;else bubbles"></ion-spinner>
+  <ng-template #bubbles>
+    <ng-content></ng-content>
+  </ng-template>
+</button>
+
+<!-- 
+  undefined 和 true 都是不等于false的 都会禁止点击 且true就转圈 undefined就禁止 且显示默认内容
+
+  只有false是可点击 并且显示默认内容
+ -->

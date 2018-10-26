@@ -1,0 +1,44 @@
+<!--
+  Generated template for the RevenuePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-lines>
+
+  <ion-navbar transparent>
+    <ion-title>营收数据</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="general">
+    <h2>
+      <ion-icon name="pin"></ion-icon>{{navParams.get('mix')}}
+    </h2>
+    <p class="time">{{navParams.get('time') | time}}</p>
+    <a (touch)="gort('total')">
+      {{navParams.get('total').toFixed(2) | revenue}}
+      <ion-icon float-right name="arrow-forward"></ion-icon>
+    </a>
+    <p>总金额(元)</p>
+  </div>
+
+  <ion-list list-cover no-margin padding-top-12>
+    <!-- M0 M5 M6 -->
+    <button ion-item (touch)="gort('learn')">
+      <ion-label>学贝充值收入</ion-label>
+      <ion-note color="gray6" item-right>{{navParams.get('learn').toFixed(2) || '0'}}元</ion-note>
+    </button>
+    <!-- <button ion-item (touch)="gort('video')">
+      <ion-label>视频套餐收入</ion-label>
+      <ion-note color="gray6" item-right>{{navParams.get('video').toFixed(2) || '0'}}元</ion-note>
+    </button> -->
+    <!-- M134 -->
+    <button ion-item (touch)="gort('err')">
+      <ion-label>错题本收入</ion-label>
+      <ion-note color="gray6" item-right>{{navParams.get('err').toFixed(2) || '0'}}元</ion-note>
+    </button>
+  </ion-list>
+</ion-content>

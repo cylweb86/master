@@ -1,0 +1,49 @@
+{
+  "name": "ionic2-app-base",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [{
+      "path": "/login",
+      "proxyUrl": "http://business-ui.septnet.cn/login"
+    },
+    {
+      "path": "/index",
+      "proxyUrl": "http://business-ui.septnet.cn/index"
+    },
+    {
+      "path": "/work",
+      "proxyUrl": "http://business-ui.septnet.cn/work"
+    },
+    {
+      "path": "/usercenter",
+      "proxyUrl": "http://business-ui.septnet.cn/usercenter"
+    },
+    {
+      "path": "/data",
+      "proxyUrl": "http://business-ui.septnet.cn/data"
+    },
+    {
+      "path": "/Business_Approval",
+      "proxyUrl": "http://business-ui.septnet.cn/Business_Approval"
+    },
+    {
+      "path": "/Business_Menu",
+      "proxyUrl": "http://business-ui.septnet.cn/Business_Menu"
+    },
+    {
+      "path": "/Message",
+      "proxyUrl": "http://business-ui.septnet.cn/Message"
+    },
+    {
+      "path": "/api",
+      "proxyUrl": "https://letsexam.7net.cc/api"
+    },
+    {
+      "path": "/oa",
+      "proxyUrl": "http://septnet-dev.img-cn-qingdao.aliyuncs.com/oa"
+    }
+  ]
+}

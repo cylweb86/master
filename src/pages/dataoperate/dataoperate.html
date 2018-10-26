@@ -1,0 +1,104 @@
+<!--
+  Generated template for the OperatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>运营详情</ion-title>
+    <ion-buttons end>
+      <button clear icon-only ion-button (touch)="help()">
+        <ion-icon color="primary" name="ios-help-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="operate-head">
+    <p>{{navParams.get('mix')}}</p>
+    <p>{{navParams.get('time') | time}}</p>
+  </div>
+  <ion-list list-cover>
+    <!-- up -->
+    <button ion-item (touch)="goTrend('NewBindUser')">
+      <ion-label>新增注册用户数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('newBindUser') || '0'}}人</ion-note>
+    </button>
+    <button ion-item (touch)="goTrend('BindUser')">
+      <ion-label>累计注册用户数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('bindUser') || '0'}}人</ion-note>
+    </button>
+    <button ion-item (touch)="goTrend('NewBindStudent')">
+      <ion-label>新增绑定学生数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('newBindStudent') || '0'}}人</ion-note>
+    </button>
+    <button ion-item (touch)="goTrend('BindStudent')">
+      <ion-label>累计绑定学生数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('bindStudent') || '0'}}人</ion-note>
+    </button>
+    <button ion-item (touch)="goTrend('PayedUser')">
+      <ion-label>付费用户数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('payUser') || '0'}}人</ion-note>
+    </button>
+    <button ion-item (touch)="goTrend('PackageUser')">
+      <ion-label>套餐用户数</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('packageUser') || '0'}}人</ion-note>
+    </button>
+    <!-- 查分访问量 -->
+    <div class="pageView">
+      <a (touch)="goTrend('ViewPV')">
+        <span class="font16" ion-text color="text">查分访问量(PV)</span>
+        <span class="font16" ion-text color="danger">{{navParams.get('viewPV') || '0'}}次</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+      <a (touch)="goTrend('ViewPayPV')">
+        <span>付费查分</span>
+        <span>{{navParams.get('viewPayPV') || '0'}}次</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+      <a (touch)="goTrend('ViewFreePV')">
+        <span>免费查分</span>
+        <span>{{navParams.get('viewFreePV') || '0'}}次</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+    </div>
+    <!-- 查分学生数 -->
+    <div class="pageView">
+      <a (touch)="goTrend('ViewStudentUV')">
+        <span class="font16" ion-text color="text">查分学生数(UV)</span>
+        <span class="font16" ion-text color="danger">{{navParams.get('viewUV') || '0'}}人</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+      <a (touch)="goTrend('ViewPayStudentUV')">
+        <span>付费查分</span>
+        <span>{{navParams.get('viewPayUV') || '0'}}人</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+      <a (touch)="goTrend('ViewFreeStudentUV')">
+        <span>免费查分</span>
+        <span>{{navParams.get('viewFreeUV') || '0'}}人</span>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </a>
+    </div>
+    <!-- down -->
+    <button ion-item (touch)="goTrend('checkRate')">
+      <ion-label>查分率(查分学生数/考生数)</ion-label>
+      <ion-note item-end color="danger">{{(100*navParams.get('checkRate')).toFixed(1)}}%</ion-note>
+    </button>
+    <button ion-item (touch)="goTrend('payRate')">
+      <ion-label>缴费率(付费用户数/查分学生数)</ion-label>
+      <ion-note item-end color="danger">{{(100*navParams.get('payRate')).toFixed(1)}}%</ion-note>
+    </button>
+    <button (touch)="goTrend('perPage')" ion-item *ngIf="navParams.get('cansee')">
+      <ion-label>单张考卷收益</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('perPage').toFixed(2)}}元</ion-note>
+    </button>
+    <button (touch)="goTrend('perExam')" ion-item *ngIf="navParams.get('cansee')">
+      <ion-label>人均收益</ion-label>
+      <ion-note item-end color="danger">{{navParams.get('perExam').toFixed(2)}}元</ion-note>
+    </button>
+  </ion-list>
+</ion-content>

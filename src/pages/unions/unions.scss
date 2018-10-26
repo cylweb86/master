@@ -1,0 +1,22 @@
+page-unions {
+  .segment-button {
+    font-size: 1.4rem !important;
+  }
+  ion-item-group {
+    background: #fff;
+    padding-top: 16px;
+    .item {
+      h3 {
+        img {
+          width: 45px;
+          position: relative;
+          top: 1px;
+        }
+      }
+    }
+  }
+  .footer .toolbar {
+    padding: 0 16px !important;
+    background: #fff;
+  }
+}

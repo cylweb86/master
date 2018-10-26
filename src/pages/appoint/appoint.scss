@@ -1,0 +1,62 @@
+page-appoint {
+  .back-button-icon {
+    color: #fff;
+  }
+  .toolbar-title {
+    color: #fff;
+  }
+  .content {
+    background: #fff url("../assets/images/headbg.png") center top no-repeat;
+    background-size: contain;
+  }
+  .summary {
+    background-color: #fff;
+    padding: 28px;
+    border-radius: 10px 10px 0 0;
+    margin-top: 60px;
+    p:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+    p>span:first-child {
+      color: color($colors, gray9);
+      display: inline-block;
+      width: 80px;
+    }
+    .longstr {
+      display: flex;
+      span:nth-child(1) {
+        width: 68px;
+        margin-right: 15px;
+      }
+      span:nth-child(2) {
+        position: relative;
+        top: 2px;
+      }
+    }
+  }
+  .subject {
+    display: flex;
+    span:first-of-type {
+      width: 83px !important;
+    }
+    span:last-of-type {
+      flex: 1;
+    }
+  }
+  .pending {
+    color: color($colors, red);
+  }
+  .success {
+    color: color($colors, secondary);
+  }
+  .do {
+    color: #FCCB02
+  }
+  .doing {
+    color: #35ACFA;
+  }
+  .position {
+    position: relative;
+    top: 1px;
+  }
+}

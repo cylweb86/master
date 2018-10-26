@@ -1,0 +1,41 @@
+{
+  "name": "ionic2-app-base",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [{
+      "path": "/login",
+      "proxyUrl": "https://business-api.7net.cc/login"
+    },
+    {
+      "path": "/index",
+      "proxyUrl": "https://business-api.7net.cc/index"
+    },
+    {
+      "path": "/work",
+      "proxyUrl": "https://business-api.7net.cc/work"
+    },
+    {
+      "path": "/usercenter",
+      "proxyUrl": "https://business-api.7net.cc/usercenter"
+    },
+    {
+      "path": "/data",
+      "proxyUrl": "https://business-api.7net.cc/data"
+    },
+    {
+      "path": "/Business_Approval",
+      "proxyUrl": "https://business-api.7net.cc/Business_Approval"
+    },
+    {
+      "path": "/Business_Menu",
+      "proxyUrl": "https://business-api.7net.cc/Business_Menu"
+    },
+    {
+      "path": "/api",
+      "proxyUrl": "https://letsexam.7net.cc/api"
+    }
+  ]
+}

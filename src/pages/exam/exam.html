@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      有考试学校
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <loading [status]="schoolsCache" *ngIf="!schoolsCache else entry"></loading>
+  <ng-template #entry>
+    <div class="operate-head">
+      <p>有{{navParams.get('type')=='exam'?'考试':'校考'}}学校共
+        <span ion-text color="primary">{{schoolList?.length}}所</span>
+      </p>
+      <p>{{navParams.get('req').time | time}}</p>
+    </div>
+    <ion-list list-cover>
+      <button (touch)="goSdata(val)" ion-item *ngFor="let val of schoolsCache">
+        <ion-avatar item-left>
+          <img src="assets/images/school.png">
+        </ion-avatar>
+        {{ val.Name }}
+        <ion-note item-right> {{navParams.get('type')=='exam'?(val.UnionExam+val.SchoolExam+val.SmallExam):val.SchoolExam }}次</ion-note>
+      </button>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="schoolsCache.length<schoolList?.length">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ng-template>
+</ion-content>

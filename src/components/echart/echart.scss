@@ -1,0 +1,10 @@
+echart {
+  //min-height: 210px;
+  width: 100%;
+  height: 163px;
+  display: block;
+
+  &>div {
+    overflow: visible !important;
+  }
+}

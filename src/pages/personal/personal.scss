@@ -1,0 +1,17 @@
+page-personal {
+  .list {
+    &::before {
+      content: "";
+      display: block;
+      height: 10px;
+      background: color($colors, background);
+      width: 100%;
+    }
+  }
+  .content {
+    background: #fff;
+  }
+  .area {
+    width: 208px;
+  }
+}

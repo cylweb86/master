@@ -1,0 +1,33 @@
+<div class="filter">
+  <div class="filter-head">
+    <div text-center class="header">
+      <span>{{this.navParams.get('region') == 'grade'?'选择级段':'选择地区'}}</span>
+      <ion-icon float-right name="close" (touch)="viewCtrl.dismiss({value:options.value,text:suffix+options.text.join(' '),differ:options.differ,close:true})"></ion-icon>
+    </div>
+    <div class="btns" line-top line-bottom>
+      <ng-container *ngFor="let item of views;let i=index">
+        <button [class.selected]="tabActiveIndex==i" *ngIf="tabActiveIndex>=i||i<=tabs.length-1" (touch)="tabsClick(i)">{{(options?.text[i]||item)|shorten}}</button>
+      </ng-container>
+    </div>
+  </div>
+
+  <ion-list no-lines>
+    <button *ngIf="this.data.length" ion-item detail-none (touch)="viewCtrl.dismiss({value:options.value,text:suffix+options.text.join(' '),differ:options.differ,all:true})">全部</button>
+    <button [class.checked]="tabs[tabActiveIndex]===i" detail-none ion-item *ngFor="let item of options?.items;let i=index" (touch)="itemsClick(i)">
+      {{item.text}}
+      <ion-icon margin-left-8 *ngIf="tabs[tabActiveIndex]===i" name="ios-checkmark"></ion-icon>
+    </button>
+  </ion-list>
+</div>
+
+<!-- 
+
+
+      this.cache =  { value: value, items: temp, text: name.toString(), differ: this.differ };
+
+      //关闭 如果value为undefined 且为关闭 则不做改变
+
+      两种特殊情况
+
+      //全部 value为undefined 且为全部 则显示全部 
+ -->

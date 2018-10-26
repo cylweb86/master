@@ -1,0 +1,39 @@
+page-news {
+  .item-inner {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .content {
+    background: #fff;
+  }
+
+  .icon {
+    font-size: 3.6rem;
+    position: relative;
+
+    span {
+      font-size: 1.2rem;
+      position: absolute;
+      right: -6px;
+      top: -6px;
+      color: #fff;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: color($colors, danger);
+      border-radius: 50%;
+
+      &.twice {
+        right: -8px;
+        top: -4px;
+        padding: 2px 4px;
+        border-radius: 10px;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}

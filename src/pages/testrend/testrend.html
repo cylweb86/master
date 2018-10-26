@@ -1,0 +1,41 @@
+<div class="trendHead" *ngIf="headline">
+  <a (touch)="navCtrl.pop()">
+    <ion-icon [color]="headline?'text':'white'" float-left name="arrow-back"></ion-icon>
+  </a>
+</div>
+<ion-content>
+  <loading msg="数据加载中..." mess="暂无数据" [status]="data" *ngIf="!data else entry"></loading>
+  <ng-template #entry>
+    <div class="trend-header">
+      <div>考试详情</div>
+      <div class="trend-btn" delegate="button" (onChanged)="changed($event)" [(value)]="time" passive="false" alive="true">
+        <button value="m">月</button>
+        <button value="q">季度</button>
+      </div>
+      <div>
+        <a (touch)="navCtrl.pop()">
+          <img src="assets/images/fork.png">
+        </a>
+      </div>
+    </div>
+    <div id="chart"></div>
+    <div class="trend-footer" delegate="button" (onChanged)="chtwo($event)" [(value)]="basics" passive="false" alive="true">
+      <button value="total">考试数</button>
+      <button value="PubExamStudentCount">考生数</button>
+      <button value="ExamStudentTime">考试人次</button>
+      <button value="ResponseCount">答卷数</button>
+      <button value="ExamSchool">有考试学校数</button>
+      <button [value]="extend" #btn>
+        {{extend | test}}
+        <ion-icon [name]="!switch?'md-arrow-dropdown':'md-arrow-dropup'" color="gray9"></ion-icon>
+      </button>
+      <div #mix *ngIf="switch" class="popover" delegate="button" (onChanged)="chthree($event)" [(value)]="extend" passive="false"
+        alive="true">
+        <button value="SchoolExamSchool">有校考学校数</button>
+        <button value="UnionExam">联考次数</button>
+        <button value="SchoolExam">校考次数</button>
+        <button value="SmallExam">小考次数</button>
+      </div>
+    </div>
+  </ng-template>
+</ion-content>
