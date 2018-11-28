@@ -18,6 +18,7 @@ import { SheetProvider } from '../../providers/sheet/sheet';
   templateUrl: 'add.html',
 })
 export class AddPage {
+  hello:any;
   text: any;
   /**
    * 工单返回
