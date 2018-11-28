@@ -19,6 +19,8 @@ import { SheetProvider } from '../../providers/sheet/sheet';
 })
 export class AddPage {
   hello:any;
+  nimen?:string = '大家好';
+  yexu?:string = '也许';
   text: any;
   /**
    * 工单返回
